@@ -17,11 +17,10 @@ public class Calculator {
 
     }
     public static class Processing{
-        public static String input() throws IOException {
+        public static void input() throws IOException {
             System.out.print("Input: ");
             BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
             input = reader.readLine();
-            return input;
         }
         public static void arabicAndRoman(String input){
             if(input.contains("I") | input.contains("V") | input.contains("X")){

@@ -3,33 +3,33 @@ import java.util.Arrays;
 public class InputNumbers extends Operation{
     Operation op = new Operation();
 
-    private static String [] numbers;
-   private static int one;
+    private static int one;
     private static int two;
-     private static int [] num ;
+
 
 
     public int splitString(String input) throws Exception {
 
-            if (input.indexOf('+') > 0) {
+        String[] numbers;
+        if (input.indexOf('+') > 0) {
                 numbers = input.split("[+]");
                 convert(numbers);
-                return op.sum(num[0], num[1]);
+                return op.sum(one,two);
             }
             if (input.indexOf('-') > 0) {
                 numbers = input.split("[-]");
                 convert(numbers);
-                return op.difference(num[0], num[1]);
+                return op.difference(one, two);
             }
             if (input.indexOf('/') > 0) {
                 numbers = input.split("[/]");
                 convert(numbers);
-                return op.division(num[0], num[1]);
+                return op.division(one, two);
             }
             if (input.indexOf('*') > 0) {
                 numbers = input.split("[*]");
                 convert(numbers);
-                return op.productOfNumbers(num[0], num[1]);
+                return op.productOfNumbers(one, two);
             } else {
                 throw new UnsuitableConditionException();
             }
@@ -48,7 +48,6 @@ public class InputNumbers extends Operation{
                     two = RomanNumeral.romanToArabic(numbers[1]);
                 }
             }catch (NumberFormatException e){
-                //System.out.println();
                 System.out.println("\n"+"Неподходящий формат чисел");
             }
         }
