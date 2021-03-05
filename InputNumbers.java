@@ -37,20 +37,21 @@ public class InputNumbers extends Operation{
 
     }
     public static void convert(String[] numbers) throws WrongNumberException {
-        if (one > 10 | one < 1 | two > 10 | two < 1) {
             try {
                 if (arabicAndRoman) {
-                    one = Integer.parseInt(numbers[0]);
-                    two = Integer.parseInt(numbers[1]);
-
+                        one = Integer.parseInt(numbers[0]);
+                        two = Integer.parseInt(numbers[1]);
                 } else {
                     one = RomanNumeral.romanToArabic(numbers[0]);
                     two = RomanNumeral.romanToArabic(numbers[1]);
                 }
+                if (one > 10 | one < 1 | two > 10 | two < 1) {
+                throw new WrongNumberException();
+            }
             }catch (NumberFormatException e){
                 System.out.println("\n"+"Неподходящий формат чисел");
-            }
+
         }
-        throw new WrongNumberException();
+
     }
 }
